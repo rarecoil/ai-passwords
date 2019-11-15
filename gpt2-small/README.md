@@ -1,6 +1,6 @@
 # GPT-2 (small, 124M)
 
-The list in this directory has been trained on the top 10 million plaintext passwords found across all [hashes.org "founds"](https://github.com/rarecoil/hashesorg-list) using Max Woolf's [gpt-2-simple](https://github.com/minimaxir/gpt-2-simple). 
+The list in this directory has been trained on the top 10 million plaintext passwords found across all [hashes.org "founds"](https://github.com/rarecoil/hashes.org-list) using Max Woolf's [gpt-2-simple](https://github.com/minimaxir/gpt-2-simple). 
 
 Note that GPT-2 was built for long-form text generation. This is an unorthodox use of this model, but as it is very popular, it was used for testing in order to publish some results in case others have considered using this widely-supported model for slow candidate generation.
 
