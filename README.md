@@ -2,9 +2,12 @@
 
 This is a collection of password lists in which I have trained various deep learning algorithms to try to come up with passwords. A full report of results exists in each directory.
 
-## Tests Run
+## Models Used
+
+All models are trained against the top 10 million passwords in all of the [hashes.org dataset](https://github.com/rarecoil/hashes.org-list), and then tested against the entire dataset for "cracks" vs. running the wordlists in hashcat.
 
 * **gpt2-small**: Using minimaxir's [gpt-2-simple](https://github.com/minimaxir/gpt-2-simple) with GPT2-small and some of the [hashes.org](https://hashes.org) "founds" dataset. 
+* **PassGAN**: [Brannon Dorsey's implementation](https://github.com/brannondorsey/passgan) of the generative adversarial network used in [_PassGAN: A Deep Learning Approach for Password Guessing_](https://arxiv.org/abs/1709.00440). The code is somewhat out of date; so I made a [Python3/TensorFlow 1.15 fork](https://github.com/rarecoil/passgan).
 
 ## Performance
 
@@ -18,24 +21,32 @@ Metrics are:
 * **In Training Set**: The amount of generated passwords that exist in the training dataset.
 * **PW/sec**: Approximate password generation per second, raw.
 * **Cracks/sec.**: Approximate novel passwords yielding cracks of the validation dataset per second.
-* **Rig**: The computer specifications used against the model. Often I borrow old/recycled hardware from friends to run my GPUs.
+* **Rig**: The computer specifications used for the experiment.
 
 | Model Name | Generated | Unique    | In Training Set | PW/sec. | Cracks/Sec. | Rig |
 |------------|-----------|-----------|-----------------|---------|-------------|-----|
-|gpt2-small  | 4,726,912 | 4,053,784 | 822,690         | 111     | 12.17       | A   |
-
+|gpt2-small  | 4,726,912 | 4,053,784 | 822,690         | 111     | 12.17       | A1  |
+|PassGAN     | 4,999,168 | 4,658,237 | 454,759         | 84516   | 19726.01    | A2  |
 
 ### Rig Specifications
 
 This contains hardware specifications used to run the model.
 
-#### Rig A "thehaswell"
+#### Rig A1 "thehaswell" (ROCm)
 
 * Intel Core i7-4790K (Devil's Canyon)
 * 32GB DDR3 RAM
 * 1 TB NVMe SSD (Samsung 960 Evo)
-* AMD Radeon VII (VBIOS version: 113-D3600200-106)
 * Ubuntu 18.04.3 LTS, ROCm 2.9.6
+* AMD Radeon VII (VBIOS version: 113-D3600200-106)
+
+#### Rig A2 "thehaswell" (CUDA)
+
+* Intel Core i7-4790K (Devil's Canyon)
+* 32GB DDR3 RAM
+* 1 TB NVMe SSD (Samsung 960 Evo)
+* Ubuntu 18.04.3 LTS, CUDA 10.1
+* NVidia Geforce GTX 1070 Ti Founders Edition
 
 # License
 

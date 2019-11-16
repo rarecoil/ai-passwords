@@ -52,7 +52,7 @@ for i in range(1000):
 
 Note that after ever 200 sessions we reset using `gpt2.reset_session`. The rig containing the AMD Radeon VII, a Haswell i7-4790K with 32GB RAM, would exhaust memory doing generations over longer ranges. With this `batch_size` and `nsamples`, the Radeon generated approximately 111 passwords to the list per second.
 
-Training was cut short after reaching in excess of 4 million password candidates.
+Generation was cut short after reaching in excess of 4 million password candidates.
 
 ## Results
 
